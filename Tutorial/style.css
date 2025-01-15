@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins",sans-serif;
+}
+#container {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Agar pseudo-element tidak keluar dari kontainer */
+}
+
+#container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('image/rm222-mind-31.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Pastikan elemen ini berada di belakang konten */
+}
+/* Kontainer kartu */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3,1fr); /* Membuat tiga kolom per baris */
+  gap: 50px;
+  justify-items: center;
+  padding: 20px 0;
+  
+}
+.hidden{
+  display: none !important;
+}
+
+/* Styling kartu individual */
+.tutorial-button{
+  width: 20rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 15px;
+}
+
+/* Hover effect untuk membuat kartu lebih elegan */
+.tutorial-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Bagian gambar atau judul kartu */
+.card-image {
+  background-color: #e0e0e0; 
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  /* height: 120px; Tinggi tetap untuk memastikan ukuran yang konsisten */
+  height: 150px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Konten deskripsi */
+.card-content {
+  font-size: 14px;
+  padding: 16px;
+  color: #333;
+}
+.btn{
+  margin: 20px;
+  padding: 15px 20px;
+  text-align: center;
+  border-radius: 50px;
+  color:white;
+  background-color: rgba(48,162,253,255);;
+}
+
+/* fillbox */
+.content{
+  padding: 2rem;
+  display: flex;
+  /* font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+
+  /* background-color: gray; */
+  /* background-color: green; */
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  .title-card{
+      text-align: center;
+  }
+  .container-content{
+    /* background-color: beige; */
+    font-family: "Poppins",sans-serif;
+    max-width: 800px;
+    margin: auto;
+    padding: 30px 10px;
+
+
+    img{
+      width: 100%;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    iframe{
+      width: 100%;
+      height: 500px;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h3,
+    p{
+      padding: 15px 0;
+      /* font-family: A; */
+    }
+    p{
+       color: #5c5c5c;
+
+    }
+  }
+}
+
+/* Responsif untuk layar yang lebih kecil */
+/* @media (max-width: 1200px) {
+  .tutorial-button {
+    width: 18rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .tutorial-button {
+    width: 16rem;
+  }
+} */
+
+@media (max-width: 768px) {
+  .tutorial-button {
+    width: 100%;
+  }
+  .card-container {
+    grid-template-columns: 1fr; /* Satu kolom di layar mobile */
+    padding: 20px 5%;
+    /*  */
+  }
+}
+
+@media (max-width: 576px) {
+  .tutorial-button {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .card-container {
+    padding: 10px;
+  }
+}
+
+#container.active::before {
+ filter: grayscale(1);
+ filter: brightness(0.5);
+}
+.content.active{
+  color:white;
+
+  p{
+    color:white;
+  }
+  
+}
